@@ -122,6 +122,10 @@ packages:
       terminator:
         dest: /usr/local/terminator/
         options: '--strip-components=1'  # recommended option, but beware tarbombs
+        # list_options: '--xz'           # when using the external tar command, sometimes
+                                         # you need to specify extra parameters to it, so
+                                         # salt can read the file contents to check if it
+                                         # needs to be extracted.
         dl:
           format: tar
           # yamllint disable rule:line-length

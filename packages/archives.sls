@@ -76,6 +76,9 @@ packages-archive-wanted-install-{{ package }}:
     - options: {{ archive.options }}
     - enforce_toplevel: {{ 'False' if 'strip-components' in archive.options else 'True' }}
       {%- endif %}
+      {%- if 'list_options' in archive and archive.list_options %}
+    - list_options: {{ archive.list_options }}
+      {%- endif %}
     - onlyif: test -d {{ archive.dest }}
     - require:
       - packages-archive-wanted-download-{{ package }}
